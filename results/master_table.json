@@ -1,0 +1,80 @@
+{
+  "E2_table": [
+    {
+      "controller": "fixed droop",
+      "experiment": "E2",
+      "max_dev": 0.0587,
+      "reactive_effort": 13.16,
+      "scenario": "single DC (bus 22)",
+      "violation_pct": 0.168
+    },
+    {
+      "controller": "switching (oracle)",
+      "experiment": "E2",
+      "max_dev": 0.0429,
+      "reactive_effort": 0.0,
+      "scenario": "single DC (bus 22)",
+      "violation_pct": 0.0
+    },
+    {
+      "controller": "switching (adaptive, ours)",
+      "experiment": "E2",
+      "max_dev": 0.0439,
+      "reactive_effort": 1.53,
+      "scenario": "single DC (bus 22)",
+      "violation_pct": 0.0
+    },
+    {
+      "controller": "fixed droop",
+      "experiment": "E2",
+      "max_dev": 0.0611,
+      "reactive_effort": 34.64,
+      "scenario": "two DC (buses 22, 25)",
+      "violation_pct": 0.272
+    },
+    {
+      "controller": "switching (oracle)",
+      "experiment": "E2",
+      "max_dev": 0.0441,
+      "reactive_effort": 0.0,
+      "scenario": "two DC (buses 22, 25)",
+      "violation_pct": 0.0
+    },
+    {
+      "controller": "switching (adaptive, ours)",
+      "experiment": "E2",
+      "max_dev": 0.0538,
+      "reactive_effort": 8.21,
+      "scenario": "two DC (buses 22, 25)",
+      "violation_pct": 0.006
+    }
+  ],
+  "E3_exact_certificate": {
+    "C": 48.82,
+    "all_trajectories_inside_envelope": true,
+    "envelope_utilization_pct": 1.26,
+    "gain_condition_satisfied": true,
+    "rho_I_minus_XK": 0.99941
+  },
+  "E4_neural_crown": {
+    "clone_mse": 0.010199624113738537,
+    "contraction_gamma_comm": 0.592,
+    "contraction_gamma_compute": 0.614,
+    "headline_band_certified": true,
+    "headline_radius": 0.04,
+    "headline_tightness_vs_empirical": 3.05,
+    "max_certified_radius": {
+      "CROWN": 0.04,
+      "IBP": null,
+      "alpha-CROWN": 0.04
+    }
+  },
+  "E5_boundary": {
+    "certified_boundary": {
+      "CROWN": 0.040859375,
+      "IBP": null,
+      "alpha-CROWN": 0.0415234375
+    },
+    "empirical_boundary": 0.14943359374999998
+  }
+}

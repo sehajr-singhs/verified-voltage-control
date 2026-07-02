@@ -1,0 +1,16 @@
+{
+  "controller": "switching-oracle",
+  "dc_buses": [
+    22
+  ],
+  "dq_total": 0.0,
+  "max_dev": 0.042966934949269286,
+  "mean_abs_q": 0.014946538157835811,
+  "n_violations": 0,
+  "seed": 0,
+  "startup_max_dev": 0.07624924964657953,
+  "v_max": 1.025641021448855,
+  "v_min": 0.9570330650507307,
+  "violation_frac": 0.0,
+  "warmup": 180
+}

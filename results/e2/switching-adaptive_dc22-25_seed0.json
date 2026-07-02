@@ -1,0 +1,17 @@
+{
+  "controller": "switching-adaptive",
+  "dc_buses": [
+    22,
+    25
+  ],
+  "dq_total": 8.068851295806335,
+  "max_dev": 0.05359346168620893,
+  "mean_abs_q": 0.048241752594031254,
+  "n_violations": 3,
+  "seed": 0,
+  "startup_max_dev": 0.09085944974503568,
+  "v_max": 1.046707444394356,
+  "v_min": 0.9464065383137911,
+  "violation_frac": 5.787037037037037e-05,
+  "warmup": 180
+}

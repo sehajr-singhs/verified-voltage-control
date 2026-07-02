@@ -1,0 +1,38 @@
+# Experiment scenario: IEEE 33-bus feeder with a two-mode AI-training data center.
+# All power values are per unit on the 10 MVA base. Time steps are 1 s control updates.
+
+feeder:
+  load_scale: 0.5           # scale on the Baran-Wu nominal loads (see src/load.py)
+
+workload:
+  dc_buses_single: [22]     # single data-center scenario (paper: bus 22)
+  dc_buses_multi: [22, 25]  # two data-center scenario (paper: buses 22 and 25)
+  compute_pu: 0.40          # compute-phase (mode 1) active load magnitude
+  comm_pu: 0.03             # communication-phase (mode 0) active load magnitude
+  compute_steps: 60         # compute-phase duration (steps)
+  comm_steps: 20            # communication-phase duration (steps)
+  wbar: 0.006               # half-width of intra-mode active-power fluctuation
+
+control:
+  gain_frac: 0.7            # scalar gain k = gain_frac * 2 / lambda_max(X)   (Theorem 1 margin)
+  deadband: 0.01            # droop deadband (p.u.)
+  q_cap: 0.30               # per-bus reactive capacity (p.u.)
+  dq_max: 0.01              # per-step reactive-power saturation (p.u./step)
+  window: 90                # La, Lb measurement windows for the adaptive controller (steps)
+  eta_b: 0.02               # bias adaptation rate
+
+sim:
+  T: 1800                   # total control steps
+  warmup: 180               # steps excluded from steady-state metrics
+  seeds: [0, 1, 2, 3, 4]    # five seeds where the workload noise is stochastic
+
+neural:
+  hidden: 32                # MLP hidden width (2 hidden layers, ReLU)
+  epochs: 1200              # safety-regularized training epochs
+  lr: 0.001
+  lam: 150.0                # weight on the worst-case band-excursion penalty
+  margin: 0.036             # keep |v-1| this far inside the +/-5% band during training
+  train_radius: 0.06        # e-box radius used for the safety penalty during training
+  certify_radii: [0.02, 0.03, 0.04, 0.05]   # E4 certified-vs-empirical sweep
+  headline_radius: 0.04     # certified operating radius reported as the E4 headline
+  contraction_deltas: [0.02, 0.03]          # box half-widths for the contraction certificate

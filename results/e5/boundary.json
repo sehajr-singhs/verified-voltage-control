@@ -1,0 +1,142 @@
+{
+  "alpha_crown_rescue_radii": [],
+  "certified_boundary": {
+    "CROWN": 0.040859375,
+    "IBP": null,
+    "alpha-CROWN": 0.0415234375
+  },
+  "dc_buses": [
+    22
+  ],
+  "empirical_boundary": 0.14943359374999998,
+  "sweep": [
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.034804023802280426,
+      "empirical_safe": true,
+      "radius": 0.01
+    },
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.03500963747501373,
+      "empirical_safe": true,
+      "radius": 0.015
+    },
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.03528329357504845,
+      "empirical_safe": true,
+      "radius": 0.02
+    },
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.035573914647102356,
+      "empirical_safe": true,
+      "radius": 0.025
+    },
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.03586452826857567,
+      "empirical_safe": true,
+      "radius": 0.03
+    },
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.03615513816475868,
+      "empirical_safe": true,
+      "radius": 0.035
+    },
+    {
+      "CROWN": true,
+      "IBP": false,
+      "alpha-CROWN": true,
+      "empirical_max": 0.036401595920324326,
+      "empirical_safe": true,
+      "radius": 0.04
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.036630239337682724,
+      "empirical_safe": true,
+      "radius": 0.045
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.0368419773876667,
+      "empirical_safe": true,
+      "radius": 0.05
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03705370053648949,
+      "empirical_safe": true,
+      "radius": 0.055
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03737087547779083,
+      "empirical_safe": true,
+      "radius": 0.06
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03771229088306427,
+      "empirical_safe": true,
+      "radius": 0.065
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03805369883775711,
+      "empirical_safe": true,
+      "radius": 0.07
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03839511051774025,
+      "empirical_safe": true,
+      "radius": 0.075
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03872286528348923,
+      "empirical_safe": true,
+      "radius": 0.08
+    },
+    {
+      "CROWN": false,
+      "IBP": false,
+      "alpha-CROWN": false,
+      "empirical_max": 0.03904108703136444,
+      "empirical_safe": true,
+      "radius": 0.085
+    }
+  ]
+}

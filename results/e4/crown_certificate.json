@@ -1,0 +1,144 @@
+{
+  "clone_mse": 0.010199624113738537,
+  "contraction": {
+    "comm": {
+      "equilibrium_max_abs": 0.033224157989025116,
+      "sweep": [
+        {
+          "certified_sup_dev": 0.011832722462713718,
+          "contracts": true,
+          "delta": 0.02,
+          "gamma": 0.5916361231356859
+        },
+        {
+          "certified_sup_dev": 0.020917929708957672,
+          "contracts": true,
+          "delta": 0.03,
+          "gamma": 0.6972643236319225
+        }
+      ]
+    },
+    "compute": {
+      "equilibrium_max_abs": 0.03365800157189369,
+      "sweep": [
+        {
+          "certified_sup_dev": 0.012278587557375431,
+          "contracts": true,
+          "delta": 0.02,
+          "gamma": 0.6139293778687716
+        },
+        {
+          "certified_sup_dev": 0.021757207810878754,
+          "contracts": true,
+          "delta": 0.03,
+          "gamma": 0.7252402603626251
+        }
+      ]
+    }
+  },
+  "dc_buses": [
+    22
+  ],
+  "headline_alpha_crown": {
+    "band_certified": true,
+    "lb_min": -0.047613050788640976,
+    "tightness_vs_empirical": 3.053835391998291,
+    "ub_max": 0.04624718427658081
+  },
+  "headline_radius": 0.04,
+  "max_certified_radius": {
+    "CROWN": 0.04,
+    "IBP": null,
+    "alpha-CROWN": 0.04
+  },
+  "sweep": [
+    {
+      "CROWN": {
+        "band_certified": true,
+        "lb_min": -0.03779764845967293,
+        "tightness_vs_empirical": 1.9933143854141235,
+        "ub_max": 0.037462420761585236
+      },
+      "IBP": {
+        "band_certified": false,
+        "lb_min": -0.5057168006896973,
+        "tightness_vs_empirical": 70.41316986083984,
+        "ub_max": 0.4902696907520294
+      },
+      "alpha-CROWN": {
+        "band_certified": true,
+        "lb_min": -0.03779622167348862,
+        "tightness_vs_empirical": 1.9768556356430054,
+        "ub_max": 0.037220682948827744
+      },
+      "empirical_e_plus_max": 0.03528329357504845,
+      "radius": 0.02
+    },
+    {
+      "CROWN": {
+        "band_certified": true,
+        "lb_min": -0.040800247341394424,
+        "tightness_vs_empirical": 2.515866279602051,
+        "ub_max": 0.03934419900178909
+      },
+      "IBP": {
+        "band_certified": false,
+        "lb_min": -0.7321754097938538,
+        "tightness_vs_empirical": 78.90626525878906,
+        "ub_max": 0.7542212605476379
+      },
+      "alpha-CROWN": {
+        "band_certified": true,
+        "lb_min": -0.040702223777770996,
+        "tightness_vs_empirical": 2.4288156032562256,
+        "ub_max": 0.03878137841820717
+      },
+      "empirical_e_plus_max": 0.03586452826857567,
+      "radius": 0.03
+    },
+    {
+      "CROWN": {
+        "band_certified": true,
+        "lb_min": -0.04832291230559349,
+        "tightness_vs_empirical": 3.218705415725708,
+        "ub_max": 0.04737561196088791
+      },
+      "IBP": {
+        "band_certified": false,
+        "lb_min": -0.9825398325920105,
+        "tightness_vs_empirical": 86.6051025390625,
+        "ub_max": 1.055471420288086
+      },
+      "alpha-CROWN": {
+        "band_certified": true,
+        "lb_min": -0.047613050788640976,
+        "tightness_vs_empirical": 3.053835391998291,
+        "ub_max": 0.04624718427658081
+      },
+      "empirical_e_plus_max": 0.036401595920324326,
+      "radius": 0.04
+    },
+    {
+      "CROWN": {
+        "band_certified": false,
+        "lb_min": -0.06252607703208923,
+        "tightness_vs_empirical": 4.007167339324951,
+        "ub_max": 0.059459179639816284
+      },
+      "IBP": {
+        "band_certified": false,
+        "lb_min": -1.2218092679977417,
+        "tightness_vs_empirical": 90.78872680664062,
+        "ub_max": 1.3449774980545044
+      },
+      "alpha-CROWN": {
+        "band_certified": false,
+        "lb_min": -0.06099332496523857,
+        "tightness_vs_empirical": 3.7501330375671387,
+        "ub_max": 0.057682961225509644
+      },
+      "empirical_e_plus_max": 0.0368419773876667,
+      "radius": 0.05
+    }
+  ]
+}
