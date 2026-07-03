@@ -86,5 +86,8 @@ No public code release exists for arXiv:2603.15588 as of July 2026 (checked gith
 We do not fabricate a fork. The assignment suggested forking `Wenqi-Cui/Voltage-Control`, but that
 repository does not exist (GitHub returns 404 as of July 2026), so there is nothing to fork. Her
 actual related public repos are `Wenqi-Cui/Lyapunov-Regularized-RL` and `Wenqi-Cui/MIMO-Neural-PI`
-(the Neural-PI and Lyapunov-regularized-RL control line this paper descends from), and those are
-cited in the README as the closest ancestors. This repo stands alone and cites the paper.
+(the Neural-PI and Lyapunov-regularized-RL control line this paper descends from). We fork the
+first into `sehajr-singhs/Lyapunov-Regularized-RL` as the honest upstream lineage link, because it
+is her closest certified-stability learned-control code and this project adds verification to exactly
+that kind of controller. The main repo here stands alone on the paper and does not claim to fork this
+paper's (nonexistent) code. Everything is released under the MIT license.

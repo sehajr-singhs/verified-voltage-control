@@ -51,29 +51,47 @@
 
 <h2>Abstract</h2>
 <div class="abstract">
-  <p>AI training workloads switch synchronously between a high-power compute phase and a low-power
-  communication phase, which throws periodic step changes in active power onto the distribution
-  feeder and drives bus voltages toward and past the plus-or-minus 5 percent band. The paper we
-  verify fixes this with a decentralized reactive-power droop whose reference switches with the
-  workload mode, and it proves the closed loop contracts when the gain satisfies \(0 \prec K \prec
-  2X^{-1}\). We do two things with that result. We reproduce the controller and certify the paper's
-  own guarantee exactly on the real feeder, because the published controller is piecewise affine so
-  its safety is a spectral-radius and matrix-sum computation rather than a search, and the closed-form
-  envelope contains every trajectory while using only 1.3 percent of it. Then we train a small neural
-  controller in the same setting and certify it with CROWN bound propagation, which proves for every
-  voltage state in an operating box and every data-center load across the full mode range, not a
-  sampled fraction of them, that one closed-loop step keeps every bus inside plus-or-minus 5 percent,
-  with a certified one-step contraction of 0.61. The published guarantee is exact because the
-  controller is affine, and bound propagation is what carries that same kind of guarantee to a
-  network, for all inputs in the region rather than a sampled subset.</p>
+  <p>A large AI training cluster steps its active power by tens of percent every few seconds,
+  synchronously across thousands of GPUs, because the training loop alternates between a compute phase
+  that pulls full power and a communication phase that idles the accelerators while gradients sync.
+  That square wave lands on a distribution feeder sized for slowly varying load, so the bus voltages
+  swing with it and cross the plus-or-minus 5 percent limit that every interconnection agreement is
+  written against, which is part of why utilities are slow to connect these campuses. On a radial
+  feeder the voltage at each bus is an affine function of the power injected along the path back to
+  the substation, so a reactive source at the data-center bus can push the voltage back, and the
+  control problem is how much reactive power to inject from local voltage alone, fast enough for a load
+  that moves in seconds. The paper we verify solves that with a decentralized droop whose reference
+  switches with the workload mode and proves the tracking error contracts when \(0 \prec K \prec
+  2X^{-1}\). We add the verification, and it splits in two because the published controller is
+  piecewise affine, so per mode the closed loop is linear and its safety is a spectral radius and a
+  matrix sum rather than a search, which we compute exactly on the real IEEE 33-bus feeder where the
+  closed-form envelope contains every trajectory while using 1.3 percent of it. Then we put a small
+  neural controller in the same loop and certify it with CROWN bound propagation, which proves for
+  every voltage state in an operating box and every data-center load across the full mode range, not a
+  sampled fraction of them, that one step holds every bus inside the band, with a certified one-step
+  contraction of 0.61. The one idea the work turns on is that an affine controller's guarantee is a
+  closed-form calculation, and bound propagation carries that same kind of guarantee to a nonlinear
+  network over a whole region at once, which is the object an operator needs before a learned
+  controller goes near a real feeder, because a sampled confidence score is not something you can put
+  in an interconnection study but a proof over the operating envelope is.</p>
 </div>
 <p class="tldr"><span class="lead">TL;DR:</span> the paper's switching-reference controller is
-certified exactly, a neural controller trained in the same setting is certified by CROWN to hold
-every bus inside plus-or-minus 5 percent for every input in an operating box of radius 0.04 p.u.,
-and the certified bound is within 3.05 times the empirical worst case where interval propagation is
-26 times off.</p>
+certified exactly, a neural controller trained in the same loop is certified by CROWN to hold every
+bus inside plus-or-minus 5 percent for every input in an operating box of radius 0.04 p.u., and the
+certified bound is within 3.05 times the empirical worst case where interval propagation is 26 times
+off and proves nothing.</p>
 
 <h2>Approach</h2>
+<p>The system is a chain, and it helps to name every link before writing any code, because the
+guarantee has to survive all the way down it. At the top is the GPU cluster, whose training loop
+sets a two-level active-power trace. That trace is the disturbance into the feeder, whose LinDistFlow
+physics turns power injections into bus voltages. The actuator is the inverter reactive power at the
+data-center bus, driven by a decentralized droop that sees only local voltage. The constraint is the
+plus-or-minus 5 percent band, which is a hard interconnection limit rather than a soft objective. And
+the certificate sits on top of the whole loop and has to hold for the states and loads the system
+actually reaches. Everything below is one pass down that chain, first for the affine controller where
+the certificate is closed form, then for the neural controller where bound propagation stands in for
+the closed form.</p>
 <p><span class="lead">The plant.</span> On the radial feeder LinDistFlow linearizes the power flow to
 an affine map from injections to per-unit voltage, with \(R, X\) the positive-definite path-overlap
 sensitivity matrices built from the line impedances,</p>
